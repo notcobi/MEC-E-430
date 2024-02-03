@@ -1,90 +1,78 @@
 \section{}
-% The system shown, represents a floor of mass 𝑀 supported by springs of stiffness 𝑘. A mass 𝑚 is 
-% % dropped on the floor from a height of ℎ.
-% a) (5 pts) Determine the motion of the floor using 𝑥, the displacement from the static 
-% equilibrium configuration before impact.
-% b) (5 pts) Determine the maximum displacement for the case when ℎ = 0. NOTE: Do not 
-% neglect the weight of the floor and the weight of mass 𝑚
-
-The system shown, represents a floor of mass $M$ supported by springs of stiffness $k$. A mass $m$ is
-dropped on the floor from a height of $h$.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\linewidth]{Questions/Figures/q5 problem diagram.png}
-    \caption{The floor and mass system}
-    \label{fig:q5-png}
-\end{figure}
+A common flow encountered in practice is the crossflow of a fluid approaching a long cylinder of radius $R$ at a freestream speed of $U_{\infty}$. For incompressible inviscid flow, the velocity field of the flow is given as:
+\begin{align}
+    u_r &= U_{\infty} \left(1 - \frac{R^2}{r^2}\right)\cos\theta \label{eq:5a} \\
+    u_{\theta} &= -U_{\infty} \left(1 + \frac{R^2}{r^2}\right)\sin\theta \label{eq:5b}
+\end{align}
 \begin{enumerate}[label=(\alph*)]
-    \item (5 pts) Determine the motion of the floor using $x$, the displacement from the static
-        equilibrium configuration before impact.
-    \item (5 pts) Determine the maximum displacement for the case when $h = 0$. NOTE: Do not
-        neglect the weight of the floor and the weight of mass $m$
+    \item Show that the velocity field satisfies the continuity equation, and
+    \item Determine the stream function corresponding to this velocity field.
 \end{enumerate}
 
 \subsection*{Solution}
 \subsection{}
-First define
-\begin{itemize}
-    \item State 1 is the initial state of $m$ at rest at height $h$.
-    \item State 2 is the state of $m$ just before impact at height $h = 0$.
-    \item State 3 is the state of $m$ just after impact with $M$.
-\end{itemize}
-and assume
-\begin{itemize}
-    \item The collision is perfectly inelastic.
-    \item $m$ is dropped with no initial velocity.
-    \item $M$ is initially at rest.
-    \item The springs are initially at their equilibrium length.
-\end{itemize}
-We begin the analysis by considering Work-Energy Theorem on mass $m$ initially and just before impact:
-\begin{align*}
-    T_1 + U_{1 \to 2} &= T_2 \\
-    \implies 0 + m g h &= \frac{1}{2} m v_2^2 \\
-    \implies v_2 &= \sqrt{2 g h}
-\end{align*}
-Next, we employ Conservation of Momentum on the system of $m$ and $M$ before and after impact. 
-\begin{align*}
-    m v_2 &= (m + M) v_3 \\
-    \implies v_3 &= \frac{m}{m + M} v_2 \\
-    \implies v_3 &= \frac{m}{m + M} \sqrt{2 g h}
-\end{align*}
-This gives us the initial velocity of the oscillator with $m_{\text{eff}} = m + M$. Next, we must determine the effect of $m$ on the equilibrium position.
-\begin{figure}[h]
+First we list some assumptions:
+\begin{table}[h]    
     \centering
-    \includegraphics[width=0.5\linewidth]{Questions/Figures/q5 equilibrium change.png}
-    \caption{The equilibrium position of the oscillator}
-    \label{fig:q5_equilibrium_change-png}
-\end{figure}
-The equilibrium position of the oscillator can be found using Hooke's Law. Since the springs are in parallel, the effective stiffness is the sum of the individual stiffnesses.
+    \caption{Assumptions}
+    \begin{tabular}{c|c}
+        Assumption & Approximation \\
+        \hline
+        Steady flow & $\partial_t = 0$ \\
+        Incompressible flow & $\rho = \text{constant}$ \\
+        2D flow & $\partial_z = 0$, $u_z = 0$ \\
+    \end{tabular}
+\end{table}
+\FloatBarrier
+The continuity equation for incompressible flow is given by
+\begin{gather*}
+    \nabla \cdot \vec{v} = 0 \\
+    \frac{1}{r} \frac{\partial}{\partial r}(r u_r) + \frac{1}{r}\frac{\partial}{\partial \theta}(u_{\theta}) + \cancelto{\text{2D}}{\frac{\partial}{\partial z}(u_z)} = 0
+\end{gather*}
+Substituting the given expressions for $u_r$ and $u_{\theta}$ into the continuity equation, we have
 \begin{align*}
-    F &= k_{\text{eff}} \delta_{st} \\
-    \implies \delta_{st} &= \frac{mg}{k_{\text{eff}}} \\
-    &= \frac{mg}{2k}
+    \frac{1}{r} \frac{\partial}{\partial r}\left(r U_{\infty} \left(1 - \frac{R^2}{r^2}\right)\cos\theta\right) + \frac{1}{r}\frac{\partial}{\partial \theta}\left(-U_{\infty} \left(1 + \frac{R^2}{r^2}\right)\sin\theta\right) &= 0 \\
+    \frac{\partial}{\partial r}\left(r U_{\infty} \left(1 - \frac{R^2}{r^2}\right)\cos\theta\right) - \frac{\partial}{\partial \theta}\left(U_{\infty} \left(1 + \frac{R^2}{r^2}\right)\sin\theta\right) &= 0  \\
+    \frac{\partial}{\partial r}\left(r U_{\infty} \cos\theta - \frac{R^2}{r}U_{\infty}\cos\theta\right) - \frac{\partial}{\partial \theta}\left(U_{\infty}\left(1+ \frac{R^2}{r^2}\right)\sin\theta\right) &= 0 
 \end{align*}
-Since $x$ is defined as positive sense downwards, the initial conditions are:
-\begin{align*}
-    x(0) &= -\frac{mg}{2k} \\
-    \dot{x}(0) &= \frac{m}{m + M} \sqrt{2 g h}
-\end{align*}
-Note that the negative sign on $x(0)$ is because the new equilibrium position is below the original equilibrium position. Now we define the natural frequency of this system:
-\begin{align*}
-    \Aboxed{p = \sqrt{\frac{k_{\text{eff}}}{m_{\text{eff}}}} = \sqrt{\frac{2k}{m + M}}}
-\end{align*}
-From (eq. 2.7), 
-\begin{align*}
-    x(t) &= x_0 \cos (pt) + \frac{\dot{x}_0}{p} \sin (pt) \\
-    \Aboxed{x(t) &= -\frac{mg}{2k} \cos (pt) + \frac{m\sqrt{2gh}}{p(m + M)} \sin (pt)}
-\end{align*}
+Expanding the derivatives, we have
+\begin{gather*}
+    U_{\infty}\cos\theta + \frac{R^2}{r^2}U_{\infty}\cos\theta - U_{\infty}\cos\theta - \frac{R^2}{r^2}U_{\infty}\cos\theta = 0 \\
+    \boxed{0 = 0}
+\end{gather*}
+Thus, the velocity field satisfies the continuity equation.
 
 \subsection{}
-Using the single-term form of the response, 
-\begin{gather*}
-    x(t) = X \sin (pt + \phi) \\
-    X = \sqrt{x_0^2 + \left(\frac{\dot{x}_0}{p}\right)^2} \\
-    \phi = \tan^{-1} \left(\frac{x_0}{\dot{x}_0 / p}\right)
-\end{gather*}
-So the maximum displacement is the amplitude, $X$, which is
+Let us derive the stream function $\psi$ for the velocity field. Observe that if 
 \begin{align*}
-    \Aboxed{x_{\text{max}} &= \sqrt{\left(-\frac{mg}{2k}\right)^2 + \left(\frac{m\sqrt{2gh}}{p(m + M)}\right)^2}}
+    u_r = \frac{1}{r} \frac{\partial \psi}{\partial \theta}, \quad u_{\theta} = -\frac{\partial \psi}{\partial r}
 \end{align*}
-%asd
+Then, the continuity equation for 2D flow is
+\begin{align*}
+    \frac{1}{r} \frac{\partial}{\partial r}(r u_r) + \frac{1}{r}\frac{\partial}{\partial \theta}(u_{\theta}) &= 0 \\
+    \frac{1}{r} \frac{\partial}{\partial r}\left(r \frac{1}{r} \frac{\partial \psi}{\partial \theta}\right) + \frac{1}{r}\frac{\partial}{\partial \theta}\left(-\frac{\partial \psi}{\partial r}\right) &= 0 \\
+    \frac{1}{r} \frac{\partial}{\partial r}\left(\frac{\partial \psi}{\partial \theta}\right) - \frac{1}{r}\frac{\partial}{\partial \theta}\left(\frac{\partial \psi}{\partial r}\right) &= 0 \\
+    \frac{\partial \psi}{\partial r \partial \theta} - \frac{\partial \psi}{\partial \theta \partial r} &= 0 \\
+    0&=0
+\end{align*}
+Thus, the stream function $\psi$ holds. We can solve for $\psi$ by integrating the $u_r$ and $u_{\theta}$ expressions. First, we integrate $u_r$ with respect to $\theta$:
+\begin{align*}
+    \psi &= \int r u_r \, d\theta \\
+    &= \int r U_{\infty} \left(1 - \frac{R^2}{r^2}\right)\cos\theta \, d\theta \\
+    &= rU_{\infty}\left(1 - \frac{R^2}{r^2}\right)\sin\theta + g(r)
+\end{align*}
+Then deriving $\psi$ with respect to $r$, we have
+\begin{align*}
+    \frac{\partial \psi}{\partial r} &= \frac{\partial}{\partial r}\left(U_{\infty}\left(r - \frac{R^2}{r}\right)\sin\theta + g(r)\right) \\
+    &= U_{\infty}\left(1 + \frac{R^2}{r^2}\right)\sin\theta + g'(r)
+\end{align*}
+Equating this expression to $-u_{\theta}$, we have
+\begin{align*}
+    U_{\infty}\left(1 + \frac{R^2}{r^2}\right)\sin\theta + g'(r) &= U_{\infty} \left(1 + \frac{R^2}{r^2}\right)\sin\theta \\
+    \implies g'(r) &= 0 \\
+    \implies g(r) &= C
+\end{align*}
+Thus, the stream function $\psi$ is given by
+\begin{align*}
+    \Aboxed{\psi &= rU_{\infty}\left(1 - \frac{R^2}{r^2}\right)\sin\theta + C}
+\end{align*}

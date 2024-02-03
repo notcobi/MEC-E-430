@@ -1,11 +1,4 @@
 \section{}
-% 3. Consider the steady flow of water through an axisymmetric garden hose nozzle 
-% shown below. The axial component of velocity increases linearly from 
-% 𝑢𝑧,𝑒𝑛𝑡𝑟𝑎𝑛𝑐𝑒 to 𝑢𝑧,𝑒𝑥𝑖𝑡 as sketched. Between 𝑧 = 0 and 𝑧 = 𝐿, the axial velocity 
-% component is given by 𝑢𝑧 = 𝑢𝑧,𝑒𝑛𝑡𝑟𝑎𝑛𝑐𝑒 + [(𝑢𝑧,𝑒𝑥𝑖𝑡 − 𝑢𝑧,𝑒𝑛𝑡𝑟𝑎𝑛𝑐𝑒)/𝐿]𝑧. 
-% Generate an expression for the radial velocity component 𝑢𝑟 between 𝑧 = 0 and 
-% 𝑧 = 𝐿. You may ignore frictional effects on the walls.
-
 Consider the steady flow of water through an axisymmetric garden hose nozzle shown below. The axial component of velocity increases linearly from $u_{z,entrance}$ to $u_{z,exit}$ as sketched. Between $z = 0$ and $z = L$, the axial velocity component is given by $u_z = u_{z,entrance} + [(u_{z,exit} - u_{z,entrance})/L]z$. Generate an expression for the radial velocity component $u_r$ between $z = 0$ and $z = L$. You may ignore frictional effects on the walls.
 \begin{figure}[h]
     \centering
@@ -15,7 +8,7 @@ Consider the steady flow of water through an axisymmetric garden hose nozzle sho
 
 \subsection*{Solution}
 First we list assumptions
-\begin{table}
+\begin{table}[h]
     \centering
     \caption{Assumptions}
     \begin{tabular}{c|c}
@@ -35,5 +28,24 @@ The continuity equation for incompressible flow is given by
 \end{align*}
 In cylindrical coordinates, the continuity equation is given by
 \begin{align*}
-    \frac{1}{r}\frac{\partial}{\partial r}(r u_r) + \frac{1}{r}\frac{\partial}{\partial \theta}(u_{\theta}) + \frac{\partial}{\partial z}(u_z) = 0
+    \frac{1}{r} \frac{\partial}{\partial r}(r u_r) + \cancelto{\text{axisymmetric}}{\frac{1}{r}\frac{\partial}{\partial \theta}(u_{\theta})} + \frac{\partial}{\partial z}(u_z) &= 0 \\
+\end{align*}
+Substituting the given expression for $u_z$ into the continuity equation, we have
+\begin{align*}
+    \frac{1}{r} \frac{\partial}{\partial r}(r u_r) + \frac{\partial}{\partial z}\left(u_{z,entrance} + \frac{u_{z,exit} - u_{z,entrance}}{L}z\right) &= 0 \\
+    \frac{1}{r} \frac{\partial}{\partial r}(r u_r) + \frac{u_{z,exit} - u_{z,entrance}}{L} &= 0 
+\end{align*}
+Solving for $u_r$, we have
+\begin{align*}
+    \frac{\partial}{\partial r}(r u_r) &= -\left(u_{z,exit} - u_{z,entrance}\right)\frac{r}{L} \\
+    r u_r &= -\frac{r^2}{2L}\left(u_{z,exit} + \frac{r^2}{2L}u_{z,entrance}\right) + g(z) 
+\end{align*}
+Notice that at $r=0$, 
+\begin{align*}
+    (0)u_r &= -\frac{0^2}{2L}\left(u_{z,exit} + \frac{0^2}{2L}u_{z,entrance}\right) + g(z) \\
+    \implies g(z) &= 0
+\end{align*}
+Thus, the radial velocity component is given by
+\begin{align*}
+    \Aboxed{u_r &= -\frac{r}{2L}\left(u_{z,exit} + \frac{r^2}{2L}u_{z,entrance}\right)}
 \end{align*}

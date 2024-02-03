@@ -1,0 +1,43 @@
+\section{}
+% steady, two-dimensional, incompressible flow field in the 𝑥𝑦-plane has a 
+% stream function given by ψ = 𝑎𝑥
+% 2 − 𝑏𝑦
+% 2 + 𝑐𝑥 + 𝑑𝑥𝑦, where 𝑎, 𝑏, 𝑐, and 𝑑 are 
+% constants. 
+% (a) Obtain expressions for velocity components 𝑢 and 𝑣,
+% (b)Verify that the flow field satisfies the incompressible continuity equation.
+A steady, two-dimensional, incompressible flow field in the $xy$-plane has a stream function given by $\psi = ax^2 - by^2 + cx + dxy$, where $a$, $b$, $c$, and $d$ are constants.
+\begin{enumerate}[label=(\alph*)]
+    \item Obtain expressions for velocity components $u$ and $v$,
+    \item Verify that the flow field satisfies the incompressible continuity equation.
+\end{enumerate}
+
+\subsection*{Solution}
+\subsection{}
+The velocity components are given by
+\begin{align*}
+    u = \frac{\partial \psi}{\partial y}, \quad v = -\frac{\partial \psi}{\partial x}
+\end{align*}
+So,
+\begin{align*}
+    u &= \frac{\partial}{\partial y}(ax^2 - by^2 + cx + dxy) \\
+    &= \boxed{-2by + dx}
+\end{align*}
+and
+\begin{align*}
+    v &= -\frac{\partial}{\partial x}(ax^2 - by^2 + cx + dxy) \\
+    &= \boxed{-2ax + dy}
+\end{align*}
+
+\subsection{}
+The continuity equation for incompressible flow is given by
+\begin{align*}
+    \nabla \cdot \vec{v} &= 0 \\
+    \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} &= 0
+\end{align*}
+Substituting the given expressions for $u$ and $v$ into the continuity equation, we have
+\begin{align*}
+    \frac{\partial}{\partial x}(-2by + dx) + \frac{\partial}{\partial y}(-2ax + dy) &= 0 \\
+    \Aboxed{d - d &= 0}
+\end{align*}
+Thus, the flow field satisfies the incompressible continuity equation.
