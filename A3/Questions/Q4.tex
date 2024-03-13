@@ -1,0 +1,42 @@
+\section{}
+
+% Consider the following steady, two-dimensional, incompressible velocity field: 
+% 𝑉⃗ = (𝑢, 𝑣) = (
+% 1
+% 2
+% 𝑎𝑦
+% 2 + 𝑏) 𝒊 + (𝑎𝑥𝑦 + 𝑐)𝒋. Is this flow field irrotational? If so, 
+% generate an expression for the velocity potential function
+\textit{Consider the following steady, two-dimensional, incompressible velocity field:}
+\begin{align*}
+    \vec{V} = (u, v) = \left(\frac{1}{2}ay^2 + b\right)\hat{i} + (axy + c)\hat{j}
+\end{align*}
+\textit{Is this flow field irrotational? If so, generate an expression for the velocity potential function.}
+
+First, check the vorticity,
+\begin{align*}
+    \vec{\nabla} \times \vec{V} &= \begin{vmatrix}
+        \hat{i} & \hat{j} & \hat{k} \\
+        \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+        \frac{1}{2}ay^2 + b & axy + c & 0
+    \end{vmatrix} \\[1em]
+    &= \left(\frac{\partial}{\partial x}(axy + c) - \frac{\partial}{\partial y}(\frac{1}{2}ay^2 + b)\right)\hat{k} \\
+    &= (a - a)\hat{k} \\
+    &= 0\hat{k}
+\end{align*}
+Since the vorticity is zero, the flow field is irrotational. The velocity potential function, $\phi$, can be found by integrating the velocity components,
+\begin{align*}
+    u &= \frac{\partial \phi}{\partial x} \\
+    \implies \phi &= \frac{1}{2}axy^2 + bx + f(y)
+\end{align*}
+From the $y$-component,
+\begin{align*}
+    v &= \frac{\partial \phi}{\partial y} \\
+    \implies \frac{\partial \phi}{\partial y} &= axy + f'(y) \\
+    \implies f'(y) &= c \\
+    \implies f(y) &= cy + C
+\end{align*}
+Therefore, the velocity potential function is
+\begin{align*}
+    \Aboxed{\phi &= \frac{1}{2}axy^2 + bx + cy + C}
+\end{align*}

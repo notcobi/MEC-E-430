@@ -1,0 +1,16 @@
+\section{}
+\textit{Estimate the speed at which you would need to swim in room temperature water to be in the creeping flow regime. (An order-of-magnitude estimate will suffice.) Discuss.}
+
+The creeping flow approximation is valid when the Reynolds number is much less than 1. As an estimation,
+\begin{align*}
+    \text{Re} &= \frac{\rho VD}{\mu} < 0.1
+\end{align*}
+Rearranging
+\begin{align*}
+    V &< \frac{0.1\mu}{\rho D}
+\end{align*}
+Using a characteristic length of $D = 1 \, \text{m}$ (order of magnitude estimation of human height) and evaluating the properties at 20°C, $\mu = 1.002 \times 10^{-3} \, \text{Pa} \cdot \text{s}$, $\rho = 998 \, \text{kg/m}^3$ \cite{cengel_thermodynamics:_2024}. Then,
+\begin{align*}
+    \Aboxed{V &< \frac{0.1(1.002 \times 10^{-3})}{998} \approx 1.00 10^{-7} \, \text{m/s}}
+\end{align*}
+This is an extremely slow speed, and is not feasible for a human to swim at this speed. This is due to the kinematic viscosity of water being very small, and the density of water being very large. Creeping flow is not a practical regime for human swimming.
