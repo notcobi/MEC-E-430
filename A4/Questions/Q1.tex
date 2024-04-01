@@ -1,0 +1,65 @@
+\section{}
+
+% Consider the Blasius solution for a laminar flat plate boundary layer. The 
+% nondimensional slope at the wall is given by equation 1 below. 
+% (
+% 𝑑(𝑢/𝑈)
+% 𝑑𝜂 )
+% 𝜂=0
+% = 𝑓
+% ′′(0) = 0.332 (Eq. 1)
+% Transform this result to physical variables and show that the following equation
+% is correct. 
+% 𝜏𝑤 = 0.332 ∙
+% 𝜌𝑈
+% 2
+% √𝑅𝑒𝑥
+% (Eq. 2)
+
+\textit{Consider the Blasius solution for a laminar flat plate boundary layer. The nondimensional slope at the wall is given by equation 1 below.}
+\begin{equation}
+    \left. \frac{d(u/U)}{d\eta} \right|_{\eta=0} = f''(0) = 0.332 \label{eq:1}
+\end{equation}
+
+\textit{Transform this result to physical variables and show that the following equation is correct.}
+\begin{equation}
+    \tau_w = 0.332 \cdot \rho U^2 \sqrt{Re_x} \label{eq:2}
+\end{equation}
+
+\textbf{Solution}
+
+At the wall, we specify that the shear stress is given by
+\begin{align}
+    \tau_w &= \mu \left( \frac{du}{dy} \right)_{y=0}  \label{eq:wallshear}
+\end{align}
+From the Blasius, 
+\begin{align*}
+    \eta &= y \sqrt{\frac{U}{\nu x}} \\
+    \implies d \eta &= \sqrt{\frac{U}{\nu x}} dy \\
+    \eta = 0 &\implies y = 0
+\end{align*}
+Then,
+\begin{align*}
+    \frac{d f'}{d\eta} &= \frac{d (u/U)}{d\eta} \\
+    &= \frac{d (u/U)}{dy \sqrt{\frac{U}{\nu x}}} \\
+    &= \frac{du}{dy} \frac{1}{U} \sqrt{\frac{\nu x}{U}} 
+\end{align*}
+Then from the solution,
+\begin{align*}
+    \left. \frac{d(u/U)}{d\eta} \right|_{\eta=0} &= 0.332 \\
+    &= \left. \frac{du}{dy} \right|_{y=0} \frac{1}{U} \sqrt{\frac{\nu x}{U}}
+\end{align*}
+Solving for $\left. \frac{du}{dy} \right|_{y=0}$,
+\begin{align*}
+    \implies \left. \frac{du}{dy} \right|_{y=0} &= 0.332 U \sqrt{\frac{U}{\nu x}} 
+\end{align*}
+Substituting this into (\ref{eq:wallshear}),
+\begin{align*}
+    \tau_w &= \mu \left. \frac{du}{dy} \right|_{y=0} \\
+    &= \mu \cdot 0.332 U \sqrt{\frac{U}{\nu x}} \\
+    &= 0.332 U \sqrt{\frac{\mu^2 U}{\frac{\mu}{\rho}x}} \\
+    &= 0.332 U \sqrt{\frac{\mu \rho U}{x} \cdot \frac{\rho U}{\rho U}} \\
+    &= 0.332 U \sqrt{\rho^2 U^2 \cdot \frac{\mu}{\rho U x}} \\
+    &= \boxed{0.332 \frac{\rho U^2}{\sqrt{\text{Re}_x}}}
+\end{align*}
+Thus, we have shown that equation (\ref{eq:2}) is correct.

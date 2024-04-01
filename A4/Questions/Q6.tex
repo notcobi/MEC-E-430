@@ -1,0 +1,38 @@
+\section{}
+% An ideal gas with 𝑘 = 1.4 is flowing through a nozzle such that the Mach 
+% number is 1.6 where the flow area is 45 cm2
+% . Approximating the flow as 
+% isentropic, determine the flow area at the location where the Mach number is 
+% 0.8
+
+\textit{An ideal gas with $k = 1.4$ is flowing through a nozzle such that the Mach number is 1.6 where the flow area is $45 cm^2$. Approximating the flow as isentropic, determine the flow area at the location where the Mach number is 0.8.}
+
+\textbf{Solution}
+Assume
+\begin{itemize}
+    \item The flow is steady, adiabatic, and one dimensional
+    \item Isentropic flow
+    \item Air is an ideal gas
+\end{itemize}
+
+The relation between flow area to throat area is given by 
+\begin{align*}
+    \frac{A_1}{A^\star} &= \frac{1}{\text{Ma}} \left[ \frac{2}{k+1} \left( 1 + \frac{k-1}{2} \text{Ma}^2 \right) \right]^{(k+1)/(2(k-1))} \\
+    &= \frac{1}{1.6} \left[ \frac{2}{1.4+1} \left( 1 + \frac{1.4-1}{2} (1.6)^2 \right) \right]^{(1.4+1)/(2(1.4-1))} \\
+    &= 1.250235
+\end{align*}
+Then,
+\begin{align*}
+    A^\star &= \frac{45}{1.250235} \\
+    &= 35.993 \text{ cm}^2
+\end{align*}
+Then using the same relation, but with $\text{Ma} = 0.8$,
+\begin{align*}
+    \frac{A_2}{A^\star} &= \frac{1}{0.8} \left[ \frac{2}{1.4+1} \left( 1 + \frac{1.4-1}{2} (0.8)^2 \right) \right]^{(1.4+1)/(2(1.4-1))} \\
+    &= 1.03823
+\end{align*}
+Then,
+\begin{align*}
+    A_2 &= 35.993 \times 1.03823 \\
+    &= \boxed{37.376 \text{ cm}^2}
+\end{align*}

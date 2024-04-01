@@ -1,0 +1,33 @@
+\section{}
+% An aircraft is designed to cruise at Mach number Ma = 1.1 at 12,000 m where 
+% the atmospheric temperature is 236.15 K. Determine the stagnation temperature 
+% on the leading edge of the wing
+
+\textit{An aircraft is designed to cruise at Mach number Ma = 1.1 at 12,000 m where the atmospheric temperature is 236.15 K. Determine the stagnation temperature on the leading edge of the wing.}
+
+\textbf{Solution}
+
+Assume
+\begin{itemize}
+    \item The flow is steady, adiabatic, and one dimensional
+    \item Isentropic flow
+    \item Air is an ideal gas with properties $c_p = 1.005 kJ/(kg \cdot K)$, $k = 1.4$, and $R = 287 J/(kg \cdot K)$
+\end{itemize}
+First we need to find the speed of air. For an ideal gas,
+\begin{align*}
+    c &= \sqrt{kRT} \\
+    \text{Ma} &= \frac{V}{c} \\
+    \implies V &= \text{Ma} \cdot c \\
+    &= \text{Ma} \sqrt{kRT} 
+\end{align*}
+Then,
+\begin{align*}
+    V &= 1.1 \sqrt{1.4 \cdot 287 \cdot 236.15} \\
+    &= 338.8376 \text{ m/s}
+\end{align*}
+Stagnation temperature is then,
+\begin{align*}
+    T_0 &= T + \frac{V^2}{2c_p} \\
+    &= 236.15 + \frac{(338.8376)^2}{2(1.005) \cdot 1000} \\
+    &= \boxed{293.27 \text{ K}}
+\end{align*}

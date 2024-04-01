@@ -1,0 +1,42 @@
+\section{}
+% Helium (𝑘 = 1.667 and 𝑐𝑃 = 5.1926 kJ/(kg ∙ K)) enters a converging–
+% diverging nozzle at 0.7 MPa, 800 K, and 100 m/s. What are the lowest 
+% temperature and pressure that can be obtained at the throat of the nozzle?
+
+\textit{Helium ($k = 1.667$ and $c_P = 5.1926 kJ/(kg \cdot K)$) enters a converging-diverging nozzle at $0.7 MPa$, $800 K$, and $100 m/s$. What are the lowest temperature and pressure that can be obtained at the throat of the nozzle?}
+
+\textbf{Solution}
+
+Assume
+\begin{itemize}
+    \item The flow is steady, adiabatic, and one dimensional
+    \item Isentropic flow
+    \item Helium is an ideal gas
+\end{itemize}
+
+Let us first find the stagnation temperature and pressure at the inlet. Then,
+\begin{align*}
+    T_0 &= T + \frac{V^2}{2c_p} \\
+    &= 800 + \frac{100^2}{2(5.1926)\cdot1000} \\
+    &= 800 + 0.0096 \\
+    &= 800.96 \text{ K}
+\end{align*}
+and,
+\begin{align*}
+    P_0 &= P \left( \frac{T_0}{T} \right)^{\frac{k}{k-1}} \\
+    &= 0.7 \left( \frac{800.96}{800} \right)^{\frac{1.667}{0.667}} \\
+    &= 0.7021 \text{ MPa}
+\end{align*}
+At the throat, the lowest temperature and pressure is the critical properties, which can be found by 
+\begin{align*}
+    T^\star &= T_0 \left( \frac{2}{k+1} \right) \\
+    &= 800.96 \left( \frac{2}{1.667+1} \right) \\
+    &= \boxed{600.64 \text{ K}}
+\end{align*}
+and,
+\begin{align*}
+    P^\star &= P_0 \left( \frac{2}{k+1} \right)^{\frac{k}{k-1}} \\
+    &= 0.7021 \left( \frac{2}{1.667+1} \right)^{\frac{1.667}{0.667}} \\
+    &= \boxed{0.3420 \text{ MPa}}
+\end{align*}
+%0.341987412164
