@@ -1,0 +1,76 @@
+\section{}
+% =
+% Air flowing at 32 kPa, 240 K, and Ma1 = 3.6 is forced to undergo an expansion 
+% turn of 10°. Determine the Mach number, pressure, and temperature of air after 
+% the expansion. 
+\textit{Air flowing at 32 kPa, 240 K, and $Ma_1 = 3.6$ is forced to undergo an expansion turn of $10^\circ$. Determine the Mach number, pressure, and temperature of air after the expansion.}
+
+\textbf{Solution}
+
+Assume 
+\begin{itemize}
+    \item The flow is steady, adiabatic, and one dimensional
+    \item Air is an ideal gas
+    \item Boundary layer is very thin
+    \item The flow is isentropic
+\end{itemize}
+By the thin boundary layer assumption, $\theta \approx beta \approx 10^\circ$. Then by the Prandtl-Meyer function, we have
+\begin{align*}
+    \nu (\text{Ma}) &= \sqrt{\frac{k + 1}{k - 1}} \tan^{-1} \left( \sqrt{\frac{k - 1}{k + 1} (\text{Ma}^2 - 1)} \right) - \tan^{-1} \left( \sqrt{\text{Ma}^2 - 1} \right)
+\end{align*}
+Then,
+\begin{align*}
+    \nu (\text{Ma}_1) &= \sqrt{\frac{1.4+1}{1.4-1}} \tan^{-1} \left( \sqrt{\frac{1.4-1}{1.4+1} (3.6^2 - 1)} \right) - \tan^{-1} \left( \sqrt{3.6^2 - 1} \right) \\
+    &= 60.0914555936^\circ
+\end{align*}
+And,
+\begin{align*}
+    \theta &= \nu (\text{Ma}_2) - \nu (\text{Ma}_1) \\
+    \implies \nu (\text{Ma}_2) &= \theta + \nu (\text{Ma}_1) \\
+    &= 10 + 60.0914555936 \\
+    &= 70.0914555936^\circ
+\end{align*}
+Using MATLAB, (or an approved engineering calculator)
+\begin{verbatim}
+syms Ma2 positive
+eqn = sqrt(2.4/0.4) * atan(sqrt(0.4/2.4 * (Ma2^2 - 1))) - atan(sqrt(Ma2^2 - 1))...
+== deg2rad(70.0914555936);
+Ma2 = vpasolve(eqn, Ma2, [1, 10]);
+Ma2 = double(Ma2)
+
+>> Ma2 =
+
+    4.3468
+
+\end{verbatim}
+Therefore,
+\begin{align*}
+    \text{Ma}_2 &= \boxed{4.3468}
+\end{align*}
+Using the isentropic relations, we have the ratios upstream as
+\begin{align*}
+    \frac{P_0}{P_1} &= \left(1 + \frac{k - 1}{2} \text{Ma}_1^2 \right)^{k/(k-1)} \\
+    &= \left(1 + \frac{1.4 - 1}{2} (3.6)^2 \right)^{1.4/0.4} \\
+    &= 87.8369299384 \\
+    \frac{T_0}{T_1} &= 1 + \left( \frac{k - 1}{2} \right) \text{Ma}_1^2 \\
+    &= 1 + \left( \frac{1.4 - 1}{2} \right) (3.6)^2 \\
+    &= 3.592
+\end{align*}
+Then, downstream we have
+\begin{align*}
+    \frac{P_0}{P_2} &= \left(1 + \frac{k - 1}{2} \text{Ma}_2^2 \right)^{k/(k-1)} \\
+    &= \left(1 + \frac{1.4 - 1}{2} (4.3468)^2 \right)^{1.4/0.4} \\
+    &= 238.593511903 \\
+    \frac{T_0}{T_2} &= 1 + \left( \frac{k - 1}{2} \right) \text{Ma}_2^2 \\
+    &= 1 + \left( \frac{1.4 - 1}{2} \right) (4.3468)^2 \\
+    &= 4.778934048
+\end{align*}
+Then,
+\begin{align*}
+    \frac{P_2}{P_1} &= \frac{P_0 / P_1}{P_0 / P_2} P_1 \\
+    &= \frac{87.8369299384}{238.593511903} \cdot 32 \\
+    &= \boxed{11.78 \text{ kPa}} \\
+    \frac{T_2}{T_1} &= \frac{T_0 / T_1}{T_0 / T_2} T_1 \\
+    &= \frac{3.592}{4.778934048} \cdot 240 \\
+    &= \boxed{180.39 \text{ K}}
+\end{align*}

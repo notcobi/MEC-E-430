@@ -1,0 +1,76 @@
+\section{}
+% Air enters a normal shock at 26 kPa, 230 K, and 815 m/s. Calculate the 
+% stagnation pressure and Mach number upstream of the shock, as well as pressure, 
+% temperature, velocity, Mach number, and stagnation pressure downstream of the 
+% shock. 
+
+\textit{Air enters a normal shock at 26 kPa, 230 K, and 815 m/s. Calculate the stagnation pressure and Mach number upstream of the shock, as well as pressure, temperature, velocity, Mach number, and stagnation pressure downstream of the shock.}
+
+\textbf{Solution}
+\begin{itemize}
+    \item The flow is steady, adiabatic, and one dimensional
+    \item Air is an ideal gas 
+\end{itemize}
+First, let us calculate the upstream parameters. At room temperature, 
+\begin{align*}
+    R &= 0.287 \text{ kJ/kg K} \\
+    c_p &= 1.005 \text{ kJ/kg K} \\
+    k &= 1.4
+\end{align*}
+Then stagnation temperature is given by
+\begin{align*}
+    T_0 &= T + \frac{V^2}{2c_p} \\
+    &= 230 + \frac{815^2}{2 \cdot 1.005 \cdot 1000} \\
+    &= 560.460199 \text{ K}
+\end{align*}
+Then stagnation pressure is given by
+\begin{align*}
+    P_0 &= P \left( \frac{T_0}{T} \right)^{k/(k-1)} \\
+    &= 26 \left( \frac{560.460199}{230} \right)^{1.4/0.4} \\
+    &= \boxed{587.263 \text{ kPa}}
+\end{align*}
+And Mach number is given by
+\begin{align*}
+    Ma &= \frac{V}{c} \\
+    &= \frac{V}{\sqrt{kR T}} \\
+    &= \frac{815}{\sqrt{1.4 \cdot 0.287 \cdot 230 \cdot 1000}} \\
+    &= \boxed{2.68095}
+\end{align*}
+Using Table A14 from Cengel and Cimbala, we can interpolate to calculate the fluid properties \cite{cengel_fluid_2018}.
+\begin{table}[H]
+    \centering
+    \caption{Table A14}
+    \begin{tabular}{cccccc}
+        \toprule
+        Ma & Ma & $P_2/P_1$ & $T_2/T_1$ & $P_{02}/P_{01}$ \\
+        \midrule
+        2.6 & 0.5039 & 7.72 & 2.2383 & 0.499 \\
+        2.7 & 0.4956 & 8.3383 & 2.3429 & 0.4601 \\
+        \midrule
+        2.68095 & 0.497181145 & 8.220514236 & 2.322973765 & 0.467510426 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Where, the last row was calculated using linear interpolation:
+\begin{align*}
+    y &= \frac{y_i + (y_{i+1} - y_i) \cdot (x - x_i)}{x_{i+1}} 
+\end{align*}
+Then downstream of the shock, we have
+\begin{align*}
+    P_2 &= 26 \cdot 8.2205 \\
+    &= \boxed{213.7 \text{ kPa}} \\
+    T_2 &= 230 \cdot 2.3229 \\ 
+    &= \boxed{534.3 \text{ K}} \\
+    P_{02} &= 587.263 \cdot 0.4675 \\
+    &= \boxed{274.6 \text{ kPa}} 
+\end{align*}
+For velocity, since $\text{Ma}_2 = 0.4972$, we have
+\begin{align*}
+    \text{Ma}_2 &= \frac{V_2}{c_2} \\
+    \implies V_2 &= \sqrt{kRT_2} \cdot \text{Ma}_2 \\
+    &= \sqrt{1.4 \cdot 0.287 \cdot 534.3 \cdot 1000} \cdot 0.4972 \\
+    &= \boxed{230.4 \text{ m/s}}
+\end{align*}
+
+
+    
